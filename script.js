@@ -1,6 +1,6 @@
 let gallery = document.querySelector(".gallery");
 gallery.addEventListener("click", () => {
-    location.assign("./gallery");
+    location.assign("./gallery.html");
 });
 var uid = new ShortUniqueId();
 
@@ -59,6 +59,7 @@ navigator.mediaDevices.getUserMedia(constraints)
         })
     });
 capturebtnCont.addEventListener("click",() => {
+    cpatureBTN.classList.add("scale-capture");
     let canvas=document.createElement("canvas");
     let tool=canvas.getContext("2d");
     canvas.width=video.videoWidth;
@@ -90,7 +91,7 @@ capturebtnCont.addEventListener("click",() => {
 recorderBtnCont.addEventListener("click",() => {
      shouldrecorder = !shouldrecorder;
     if (shouldrecorder) {
-        recoreder.classList.add("scale-record")
+        recorederBtn.classList.add("scale-record")
         //recording start
         recoreder.start();
         // start timer
@@ -101,7 +102,7 @@ recorderBtnCont.addEventListener("click",() => {
         stopTimer();
     }
 });
-let timer = document.querySelector(".timer-cont");
+let timer = document.querySelector(".time");
 let counter=0;
 let timerID;
 function startTimer(){
@@ -130,9 +131,12 @@ function startTimer(){
 }
 
 function stopTimer(){
-    timerEle.classList.remove("timing-active");
-    timerEle.innerText="00:00:00";
-    clearInterval(clearObj);
+    clearInterval(timerID);
+  timer.innerText = "00:00:00";
+  timer.style.display = "none";
+    // timerEle.classList.remove("timing-active");
+    // timerEle.innerText="00:00:00";
+    // clearInterval(clearObj);
 
 }
 //filter add
@@ -141,7 +145,7 @@ let allFilters = document.querySelectorAll(".filter");
 
 allFilters.forEach((filterElem) => {
   filterElem.addEventListener("click", () => {
-    transparentColor =
+    transaprenColor =
       getComputedStyle(filterElem).getPropertyValue("background-color");
     filterLayer.style.backgroundColor = transaprenColor;
   });

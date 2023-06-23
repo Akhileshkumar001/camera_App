@@ -50,10 +50,13 @@
    }
    .timer-cont{
     position: absolute;
-    bottom: 4rem;
+    bottom: 10rem;
     left: 3rem;
     color: white;
     z-index: 2;
+   }
+   .time{
+    display: none;
    }
    .filter-cont{
     height: 16rem;
@@ -75,13 +78,13 @@
     
    }
    .orange{
-        background-color: rgb(86, 61, 16);
+        background-color:  #ffa50052;
    }
    .brown{
-        background-color: rgb(194, 122, 122);
+        background-color:#a52a2a59 ;
    }
    .pink{
-        background-color: rgb(214, 171, 178);
+        background-color: #ffc0cb57 ;
    }
    .transparent{
         background-color: transparent;
@@ -96,20 +99,64 @@
     left: 0;
     
    }
+   .scale-capture{
+     animation-name :scale-capture;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+ }
+
+ .scale-record{
+     animation-name :scale-record;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+ }
+
+ @keyframes scale-capture{
+     0%{
+         transform: scale(0.8);
+     }
+
+     100%{
+         transform: scale(1.1);
+     }
+ }
+
+ @keyframes scale-record{
+     0%{
+         transform: scale(0.8);
+     }
+
+     100%{
+         transform: scale(1.1);
+     }
+ }
    .material.icons{
      color:white;
      font-size: 3rem;
    }
-   #gallery-button{
+   .gallery{
+     position: absolute;
+     bottom: 10rem;
+    right: 6rem;
+    z-index: 2;
+
+ } 
+ 
+    /* #gallery-button{
     position: fixed;
     top: 78vh;
     left: 87vw;
     z-index: 2;
-    /* height: 3rem; */
-    /* width: 3rem; */
-    background-color: lightgray;
+     height: 3rem; 
+     width: 3rem; 
+     background-color: lightgray;
     outline: none;
     border: none;
     font-size: 3rem;
    }
+     */
+     .gallery:hover{
+        cursor: pointer;
+    }
+  
    
